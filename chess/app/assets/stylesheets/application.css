@@ -1,0 +1,56 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *= require jquery-ui
+ *= require_tree .
+ *= require_self
+ */
+
+ #title {
+ 	position: relative;
+    font-size: 40px;
+    text-align: center;
+ }
+
+ .chessboard {
+ 	text-align: center;
+ }
+
+ .board-row {
+ 	margin: 0;
+ 	height: 56px;
+ }
+
+ .black-square {
+ 	display: inline-block;
+ 	width: 50px;
+ 	height: 50px;
+ 	line-height: 90px;
+ 	margin: 0;
+ 	color: white;
+    border: black solid 1px;
+    background-color: gray;
+ }
+
+.white-square {
+	display: inline-block;
+ 	width: 50px;
+ 	height: 50px;
+ 	line-height: 90px;
+ 	color: black;
+ 	margin: 0;
+    border: black solid 1px;
+    background-color: white;
+}
+
+.piece {
+  height: 40px;
+}
