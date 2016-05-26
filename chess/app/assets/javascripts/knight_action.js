@@ -6,7 +6,7 @@ var knightAction = function() {
 			
 		drop: function( event, ui ) {
             //white knight
-			if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("white-knight")){
+			if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
@@ -47,7 +47,7 @@ var knightAction = function() {
 			    .html( ui.draggable );			    
 			};
 			//black knight
-			if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("black-knight")){
+			if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
