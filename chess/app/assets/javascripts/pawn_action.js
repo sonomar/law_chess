@@ -2,6 +2,7 @@ var pawnAction = function() {
 	$( ".white-square, .black-square" ).droppable({
 		activeClass: "ui-state-hover",
 		hoverClass: "ui-state-active",
+		disabled: false,
 			
 		drop: function( event, ui ) {
           
