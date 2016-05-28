@@ -19,6 +19,12 @@ var playerTurn = function() {
         }
         else if($(this).attr("class") === "white-king white-piece chess-piece ui-draggable ui-draggable-handle" || $(this).attr("class") === "black-king black-piece chess-piece ui-draggable ui-draggable-handle") {
           kingAction();
+        }
+        else if($(this).attr("class") === "white-bishop white-piece chess-piece ui-draggable ui-draggable-handle" || $(this).attr("class") === "black-bishop black-piece chess-piece ui-draggable ui-draggable-handle") {
+          bishopAction();
+        }
+        else if($(this).attr("class") === "white-queen white-piece chess-piece ui-draggable ui-draggable-handle" || $(this).attr("class") === "black-queen black-piece chess-piece ui-draggable ui-draggable-handle") {
+          queenAction();
         };
     }
   });
