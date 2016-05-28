@@ -5,7 +5,8 @@ var bishopAction = function() {
 		disabled: false,
 			
 		drop: function( event, ui ) {
-			for(var i = 1; i < 9; i ++) {
+			for(var i = 1; i < 10; i ++) {
+				//white bishop
 	        	if($(this)[0] === startPos.parent().siblings().eq(startPos.parent().index() - i).children("span")[(startPos.index() + i)] && startPos.children().hasClass("white-bishop") && $(this).children().hasClass("white-piece") === false){
 				    playerTurn();
 				    $( this )
@@ -26,12 +27,28 @@ var bishopAction = function() {
 				    $( this )
 				    .html( ui.draggable );	
 				};
-			};
-			// else if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() - 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false){
-			//     playerTurn();
-			//     return $( this )
-			//     .html( ui.draggable );			    
-			// };
+				//black-bishop
+	        	if($(this)[0] === startPos.parent().siblings().eq(startPos.parent().index() - i).children("span")[(startPos.index() + i)] && startPos.children().hasClass("black-bishop") && $(this).children().hasClass("black-piece") === false){
+				    playerTurn();
+				    $( this )
+				    .html( ui.draggable );			    
+				}
+				else if($(this)[0] === startPos.parent().siblings().eq(startPos.parent().index() - i).children("span")[(startPos.index() - i)] && startPos.children().hasClass("black-bishop") && $(this).children().hasClass("black-piece") === false) {
+					playerTurn();
+				    $( this )
+				    .html( ui.draggable );	
+				}
+				else if($(this)[0] === startPos.parent().siblings().eq(startPos.parent().index() + (i - 1)).children("span")[(startPos.index() + i)] && startPos.children().hasClass("black-bishop") && $(this).children().hasClass("black-piece") === false) {
+					playerTurn();
+				    $( this )
+				    .html( ui.draggable );	
+				}
+				else if($(this)[0] === startPos.parent().siblings().eq(startPos.parent().index() + (i - 1)).children("span")[(startPos.index() - i)] && startPos.children().hasClass("black-bishop") && $(this).children().hasClass("black-piece") === false) {
+					playerTurn();
+				    $( this )
+				    .html( ui.draggable );	
+				};
+            };
 		}
 	});
 };
