@@ -9,7 +9,6 @@ var rookAction = function() {
 		activeClass: "ui-state-hover",
 		hoverClass: "ui-state-active",
 		disabled: false,
-		// accept: ".valid",
 		
 		drop: function( event, ui ) {
 
@@ -93,7 +92,6 @@ var rookAction = function() {
 			}
 			//black horizontal movement
 			else if($(this).parent()[0] === startPos.parent()[0] && $(this).index() != startPos.siblings().eq(disableLeftArray[disableLeftArray[0]]).index() && $(this).index() != startPos.siblings().eq(disableLeftArray[disableLeftArray[0] - 1]).index() && $(this).index() != startPos.siblings().eq(disableLeftArray[disableLeftArray[0] - 2]).index() && $(this).index() != startPos.siblings().eq(disableLeftArray[disableLeftArray[0] - 3]).index() && $(this).index() != startPos.siblings().eq(disableLeftArray[disableLeftArray[0] - 4]).index() && $(this).index() != startPos.siblings().eq(disableLeftArray[disableLeftArray[0] - 5]).index() && $(this).index() != startPos.siblings().eq(disableLeftArray[disableLeftArray[0] - 6]).index() && $(this).index() != startPos.siblings().eq(disableLeftArray[disableLeftArray[0] - 7]).index() && $(this).index() != startPos.siblings().eq(disableRightArray[0]).index() && $(this).index() != startPos.siblings().eq(disableRightArray[0] + 1).index() && $(this).index() != startPos.siblings().eq(disableRightArray[0] + 2).index() && $(this).index() != startPos.siblings().eq(disableRightArray[0] + 3).index() && $(this).index() != startPos.siblings().eq(disableRightArray[0] + 4).index() && $(this).index() != startPos.siblings().eq(disableRightArray[0] + 5).index() && $(this).index() != startPos.siblings().eq(disableRightArray[0] + 6).index() && $(this).index() != startPos.siblings().eq(disableRightArray[0] + 7).index() && startPos.children().hasClass("black-rook") && $(this).children().hasClass("black-piece") === false){
-			    // findPiece();
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
