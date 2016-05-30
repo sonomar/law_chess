@@ -6,83 +6,83 @@ var knightAction = function() {
 			
 		drop: function( event, ui ) {
             //white knight
-			if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false){
+			if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
-			else if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() - 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false){
+			else if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() - 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
-			else if($(this)[0] === startPos.parent().next().next().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false){
+			else if($(this)[0] === startPos.parent().next().next().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
-			else if($(this)[0] === startPos.parent().next().next().children("span")[(startPos.index() - 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false){
+			else if($(this)[0] === startPos.parent().next().next().children("span")[(startPos.index() - 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
-			else if($(this)[0] === startPos.parent().prev().children("span")[(startPos.index() + 2)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false){
+			else if($(this)[0] === startPos.parent().prev().children("span")[(startPos.index() + 2)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
-			else if($(this)[0] === startPos.parent().prev().children("span")[(startPos.index() - 2)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false){
+			else if($(this)[0] === startPos.parent().prev().children("span")[(startPos.index() - 2)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
-			else if($(this)[0] === startPos.parent().next().children("span")[(startPos.index() + 2)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false){
+			else if($(this)[0] === startPos.parent().next().children("span")[(startPos.index() + 2)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
-			else if($(this)[0] === startPos.parent().next().children("span")[(startPos.index() - 2)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false){
+			else if($(this)[0] === startPos.parent().next().children("span")[(startPos.index() - 2)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			};
 			//black knight
-			if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false){
+			if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
-			else if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() - 1)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false){
+			else if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() - 1)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
-			else if($(this)[0] === startPos.parent().next().next().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false){
+			else if($(this)[0] === startPos.parent().next().next().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
-			else if($(this)[0] === startPos.parent().next().next().children("span")[(startPos.index() - 1)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false){
+			else if($(this)[0] === startPos.parent().next().next().children("span")[(startPos.index() - 1)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
-			else if($(this)[0] === startPos.parent().prev().children("span")[(startPos.index() + 2)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false){
+			else if($(this)[0] === startPos.parent().prev().children("span")[(startPos.index() + 2)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
-			else if($(this)[0] === startPos.parent().prev().children("span")[(startPos.index() - 2)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false){
+			else if($(this)[0] === startPos.parent().prev().children("span")[(startPos.index() - 2)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
-			else if($(this)[0] === startPos.parent().next().children("span")[(startPos.index() + 2)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false){
+			else if($(this)[0] === startPos.parent().next().children("span")[(startPos.index() + 2)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
-			else if($(this)[0] === startPos.parent().next().children("span")[(startPos.index() - 2)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false){
+			else if($(this)[0] === startPos.parent().next().children("span")[(startPos.index() - 2)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
 			    return $( this )
 			    .html( ui.draggable );			    
