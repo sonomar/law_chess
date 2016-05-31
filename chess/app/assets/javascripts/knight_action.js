@@ -8,7 +8,6 @@ var knightAction = function() {
             //white knight
 			if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
-			    debugger
 			    return $( this )
 			    .html( ui.draggable );			    
 			}

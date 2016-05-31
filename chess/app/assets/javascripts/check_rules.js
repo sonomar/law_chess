@@ -1,14 +1,11 @@
 var isCheck = function() {
 	var whiteCheckList = [];
 	var blackCheckList = [];
-	var checkMateWhiteArray = ["whiteCheck", "whiteCheckUp", "whiteCheckDown", "whiteCheckLeft", "whiteCheckRight", "whiteCheckUpLeft", "whiteCheckUpRight", "whiteCheckDownRight", "whiteCheckDownLeft"];
-	var checkMateBlackArray = ["blackCheck", "blackCheckUp", "blackCheckDown", "blackCheckLeft", "blackCheckRight", "blackCheckUpLeft", "blackCheckUpRight", "blackCheckDownRight", "blackCheckDownLeft"];
 	var sortedWhiteMatchArray = [];
 	var sortedBlackMatchArray = [];
 	var blackCounter;
 	var whiteCounter;
 
-	//find white king and surrounding squares
 	var findWhiteKing = $(".board-row").find(".white-king").parent();
 	var findUpWhiteKing = findWhiteKing.parent().prev().children().eq(findWhiteKing.index());
 	var findLeftWhiteKing = findWhiteKing.prev();
@@ -18,7 +15,7 @@ var isCheck = function() {
 	var findUpLeftWhiteKing = findWhiteKing.parent().prev().children().eq(findWhiteKing.index() - 1);
 	var findDownRightWhiteKing = findWhiteKing.parent().next().children().eq(findWhiteKing.index() + 1);
 	var findDownLeftWhiteKing = findWhiteKing.parent().next().children().eq(findWhiteKing.index() - 1);
-	//find black king and surrounding squares
+	
 	var findBlackKing = $(".board-row").find(".black-king").parent();
 	var findUpBlackKing = findBlackKing.parent().prev().children().eq(findBlackKing.index());
 	var findLeftBlackKing = findBlackKing.prev();
@@ -261,300 +258,111 @@ var isCheck = function() {
 	    };
 	  };
 	};
-	
-    //look for check and checkmate for
-    //white pawns
-	whiteCheckByPawn(findWhiteKing, "whiteCheck");
-	whiteCheckByPawn(findUpWhiteKing, "whiteCheckUp");
-	whiteCheckByPawn(findDownWhiteKing, "whiteCheckDown");
-	whiteCheckByPawn(findLeftWhiteKing, "whiteCheckLeft");
-	whiteCheckByPawn(findRightWhiteKing, "whiteCheckRight");
-	whiteCheckByPawn(findUpLeftWhiteKing, "whiteCheckUpLeft");
-	whiteCheckByPawn(findUpRightWhiteKing, "whiteCheckUpRight");
-	whiteCheckByPawn(findDownRightWhiteKing, "whiteCheckDownRight");
-	whiteCheckByPawn(findDownLeftWhiteKing, "whiteCheckDownLeft");
 
-	//white knights
-	whiteCheckByKnight(findWhiteKing, "whiteCheck");
-	whiteCheckByKnight(findUpWhiteKing, "whiteCheckUp");
-	whiteCheckByKnight(findDownWhiteKing, "whiteCheckDown");
-	whiteCheckByKnight(findLeftWhiteKing, "whiteCheckLeft");
-	whiteCheckByKnight(findRightWhiteKing, "whiteCheckRight");
-	whiteCheckByKnight(findUpLeftWhiteKing, "whiteCheckUpLeft");
-	whiteCheckByKnight(findUpRightWhiteKing, "whiteCheckUpRight");
-	whiteCheckByKnight(findDownRightWhiteKing, "whiteCheckDownRight");
-	whiteCheckByKnight(findDownLeftWhiteKing, "whiteCheckDownLeft");
+	var whiteCheckComf = function() {
+		findWhiteKing = $(".board-row").find(".white-king").parent();
+		whiteCheckByPawn(findWhiteKing, "check");
+		whiteCheckByKnight(findWhiteKing, "check");
+		whiteCheckByKing(findWhiteKing, "check");
+		whiteCheckByRookAndQueenRight(findWhiteKing, "check");
+		whiteCheckByRookAndQueenLeft(findWhiteKing, "check");
+		whiteCheckByRookAndQueenDown(findWhiteKing, "check");
+		whiteCheckByRookAndQueenUp(findWhiteKing, "check");
+		whiteCheckByBishopOrQueenUpLeft(findWhiteKing, "check");
+		whiteCheckByBishopOrQueenUpRight(findWhiteKing, "check");
+		whiteCheckByBishopOrQueenDownLeft(findWhiteKing, "check");
+		whiteCheckByBishopOrQueenDownRight(findWhiteKing, "check");
+		return whiteCheckList;
+	}
 
-	//white kings
-	whiteCheckByKing(findWhiteKing, "whiteCheck");
-	whiteCheckByKing(findUpWhiteKing, "whiteCheckUp");
-	whiteCheckByKing(findDownWhiteKing, "whiteCheckDown");
-	whiteCheckByKing(findLeftWhiteKing, "whiteCheckLeft");
-	whiteCheckByKing(findRightWhiteKing, "whiteCheckRight");
-	whiteCheckByKing(findUpLeftWhiteKing, "whiteCheckUpLeft");
-	whiteCheckByKing(findUpRightWhiteKing, "whiteCheckUpRight");
-	whiteCheckByKing(findDownRightWhiteKing, "whiteCheckDownRight");
-	whiteCheckByKing(findDownLeftWhiteKing, "whiteCheckDownLeft");
-
-    //white rooks and queens
-	whiteCheckByRookAndQueenRight(findWhiteKing, "whiteCheck");
-	whiteCheckByRookAndQueenRight(findUpWhiteKing, "whiteCheckUp");
-	whiteCheckByRookAndQueenRight(findDownWhiteKing, "whiteCheckDown");
-	whiteCheckByRookAndQueenRight(findLeftWhiteKing, "whiteCheckLeft");
-	whiteCheckByRookAndQueenRight(findRightWhiteKing, "whiteCheckRight");
-	whiteCheckByRookAndQueenRight(findUpLeftWhiteKing, "whiteCheckUpLeft");
-	whiteCheckByRookAndQueenRight(findUpRightWhiteKing, "whiteCheckUpRight");
-	whiteCheckByRookAndQueenRight(findDownRightWhiteKing, "whiteCheckDownRight");
-	whiteCheckByRookAndQueenRight(findDownLeftWhiteKing, "whiteCheckDownLeft");
-
-	whiteCheckByRookAndQueenLeft(findWhiteKing, "whiteCheck");
-	whiteCheckByRookAndQueenLeft(findUpWhiteKing, "whiteCheckUp");
-	whiteCheckByRookAndQueenLeft(findDownWhiteKing, "whiteCheckDown");
-	whiteCheckByRookAndQueenLeft(findLeftWhiteKing, "whiteCheckLeft");
-	whiteCheckByRookAndQueenLeft(findRightWhiteKing, "whiteCheckRight");
-	whiteCheckByRookAndQueenLeft(findUpLeftWhiteKing, "whiteCheckUpLeft");
-	whiteCheckByRookAndQueenLeft(findUpRightWhiteKing, "whiteCheckUpRight");
-	whiteCheckByRookAndQueenLeft(findDownRightWhiteKing, "whiteCheckDownRight");
-	whiteCheckByRookAndQueenLeft(findDownLeftWhiteKing, "whiteCheckDownLeft");
-
-	whiteCheckByRookAndQueenDown(findWhiteKing, "whiteCheck");
-	whiteCheckByRookAndQueenDown(findUpWhiteKing, "whiteCheckUp");
-	whiteCheckByRookAndQueenDown(findDownWhiteKing, "whiteCheckDown");
-	whiteCheckByRookAndQueenDown(findLeftWhiteKing, "whiteCheckLeft");
-	whiteCheckByRookAndQueenDown(findRightWhiteKing, "whiteCheckRight");
-	whiteCheckByRookAndQueenDown(findUpLeftWhiteKing, "whiteCheckUpLeft");
-	whiteCheckByRookAndQueenDown(findUpRightWhiteKing, "whiteCheckUpRight");
-	whiteCheckByRookAndQueenDown(findDownRightWhiteKing, "whiteCheckDownRight");
-	whiteCheckByRookAndQueenDown(findDownLeftWhiteKing, "whiteCheckDownLeft");
-
-	whiteCheckByRookAndQueenUp(findWhiteKing, "whiteCheck");
-	whiteCheckByRookAndQueenUp(findUpWhiteKing, "whiteCheckUp");
-	whiteCheckByRookAndQueenUp(findDownWhiteKing, "whiteCheckDown");
-	whiteCheckByRookAndQueenUp(findLeftWhiteKing, "whiteCheckLeft");
-	whiteCheckByRookAndQueenUp(findRightWhiteKing, "whiteCheckRight");
-	whiteCheckByRookAndQueenUp(findUpLeftWhiteKing, "whiteCheckUpLeft");
-	whiteCheckByRookAndQueenUp(findUpRightWhiteKing, "whiteCheckUpRight");
-	whiteCheckByRookAndQueenUp(findDownRightWhiteKing, "whiteCheckDownRight");
-	whiteCheckByRookAndQueenUp(findDownLeftWhiteKing, "whiteCheckDownLeft");
-
-	//white bishops and queens
-	whiteCheckByBishopOrQueenUpLeft(findWhiteKing, "whiteCheck");
-	whiteCheckByBishopOrQueenUpLeft(findUpWhiteKing, "whiteCheckUp");
-	whiteCheckByBishopOrQueenUpLeft(findDownWhiteKing, "whiteCheckDown");
-	whiteCheckByBishopOrQueenUpLeft(findLeftWhiteKing, "whiteCheckLeft");
-	whiteCheckByBishopOrQueenUpLeft(findRightWhiteKing, "whiteCheckRight");
-	whiteCheckByBishopOrQueenUpLeft(findUpLeftWhiteKing, "whiteCheckUpLeft");
-	whiteCheckByBishopOrQueenUpLeft(findUpRightWhiteKing, "whiteCheckUpRight");
-	whiteCheckByBishopOrQueenUpLeft(findDownRightWhiteKing, "whiteCheckDownRight");
-	whiteCheckByBishopOrQueenUpLeft(findDownLeftWhiteKing, "whiteCheckDownLeft");
-
-    whiteCheckByBishopOrQueenUpRight(findWhiteKing, "whiteCheck");
-	whiteCheckByBishopOrQueenUpRight(findUpWhiteKing, "whiteCheckUp");
-	whiteCheckByBishopOrQueenUpRight(findDownWhiteKing, "whiteCheckDown");
-	whiteCheckByBishopOrQueenUpRight(findLeftWhiteKing, "whiteCheckLeft");
-	whiteCheckByBishopOrQueenUpRight(findRightWhiteKing, "whiteCheckRight");
-	whiteCheckByBishopOrQueenUpRight(findUpLeftWhiteKing, "whiteCheckUpLeft");
-	whiteCheckByBishopOrQueenUpRight(findUpRightWhiteKing, "whiteCheckUpRight");
-	whiteCheckByBishopOrQueenUpRight(findDownRightWhiteKing, "whiteCheckDownRight");
-	whiteCheckByBishopOrQueenUpRight(findDownLeftWhiteKing, "whiteCheckDownLeft");
-
-	whiteCheckByBishopOrQueenDownLeft(findWhiteKing, "whiteCheck");
-	whiteCheckByBishopOrQueenDownLeft(findUpWhiteKing, "whiteCheckUp");
-	whiteCheckByBishopOrQueenDownLeft(findDownWhiteKing, "whiteCheckDown");
-	whiteCheckByBishopOrQueenDownLeft(findLeftWhiteKing, "whiteCheckLeft");
-	whiteCheckByBishopOrQueenDownLeft(findRightWhiteKing, "whiteCheckRight");
-	whiteCheckByBishopOrQueenDownLeft(findUpLeftWhiteKing, "whiteCheckUpLeft");
-	whiteCheckByBishopOrQueenDownLeft(findUpRightWhiteKing, "whiteCheckUpRight");
-	whiteCheckByBishopOrQueenDownLeft(findDownRightWhiteKing, "whiteCheckDownRight");
-	whiteCheckByBishopOrQueenDownLeft(findDownLeftWhiteKing, "whiteCheckDownLeft");
-
-	whiteCheckByBishopOrQueenDownRight(findWhiteKing, "whiteCheck");
-	whiteCheckByBishopOrQueenDownRight(findUpWhiteKing, "whiteCheckUp");
-	whiteCheckByBishopOrQueenDownRight(findDownWhiteKing, "whiteCheckDown");
-	whiteCheckByBishopOrQueenDownRight(findLeftWhiteKing, "whiteCheckLeft");
-	whiteCheckByBishopOrQueenDownRight(findRightWhiteKing, "whiteCheckRight");
-	whiteCheckByBishopOrQueenDownRight(findUpLeftWhiteKing, "whiteCheckUpLeft");
-	whiteCheckByBishopOrQueenDownRight(findUpRightWhiteKing, "whiteCheckUpRight");
-	whiteCheckByBishopOrQueenDownRight(findDownRightWhiteKing, "whiteCheckDownRight");
-	whiteCheckByBishopOrQueenDownRight(findDownLeftWhiteKing, "whiteCheckDownLeft");
-	
-	//black pawns
-	blackCheckByPawn(findBlackKing, "blackCheck");
-	blackCheckByPawn(findUpBlackKing, "blackCheckUp");
-	blackCheckByPawn(findDownBlackKing, "blackCheckDown");
-	blackCheckByPawn(findLeftBlackKing, "blackCheckLeft");
-	blackCheckByPawn(findRightBlackKing, "blackCheckRight");
-	blackCheckByPawn(findUpLeftBlackKing, "blackCheckUpLeft");
-	blackCheckByPawn(findUpRightBlackKing, "blackCheckUpRight");
-	blackCheckByPawn(findDownRightBlackKing, "blackCheckDownRight");
-	blackCheckByPawn(findDownLeftBlackKing, "blackCheckDownLeft");
-
-	//black knights
-	blackCheckByKnight(findBlackKing, "blackCheck");
-	blackCheckByKnight(findUpBlackKing, "blackCheckUp");
-	blackCheckByKnight(findDownBlackKing, "blackCheckDown");
-	blackCheckByKnight(findLeftBlackKing, "blackCheckLeft");
-	blackCheckByKnight(findRightBlackKing, "blackCheckRight");
-	blackCheckByKnight(findUpLeftBlackKing, "blackCheckUpLeft");
-	blackCheckByKnight(findUpRightBlackKing, "blackCheckUpRight");
-	blackCheckByKnight(findDownRightBlackKing, "blackCheckDownRight");
-	blackCheckByKnight(findDownLeftBlackKing, "blackCheckDownLeft");
-
-	//black kings
-	blackCheckByKing(findBlackKing, "blackCheck");
-	blackCheckByKing(findUpBlackKing, "blackCheckUp");
-	blackCheckByKing(findDownBlackKing, "blackCheckDown");
-	blackCheckByKing(findLeftBlackKing, "blackCheckLeft");
-	blackCheckByKing(findRightBlackKing, "blackCheckRight");
-	blackCheckByKing(findUpLeftBlackKing, "blackCheckUpLeft");
-	blackCheckByKing(findUpRightBlackKing, "blackCheckUpRight");
-	blackCheckByKing(findDownRightBlackKing, "blackCheckDownRight");
-	blackCheckByKing(findDownLeftBlackKing, "blackCheckDownLeft");
-
-	//black rooks and queens
-	blackCheckByRookAndQueenRight(findBlackKing, "blackCheck");
-	blackCheckByRookAndQueenRight(findUpBlackKing, "blackCheckUp");
-	blackCheckByRookAndQueenRight(findDownBlackKing, "blackCheckDown");
-	blackCheckByRookAndQueenRight(findLeftBlackKing, "blackCheckLeft");
-	blackCheckByRookAndQueenRight(findRightBlackKing, "blackCheckRight");
-	blackCheckByRookAndQueenRight(findUpLeftBlackKing, "blackCheckUpLeft");
-	blackCheckByRookAndQueenRight(findUpRightBlackKing, "blackCheckUpRight");
-	blackCheckByRookAndQueenRight(findDownRightBlackKing, "blackCheckDownRight");
-	blackCheckByRookAndQueenRight(findDownLeftBlackKing, "blackCheckDownLeft");
-
-	blackCheckByRookAndQueenLeft(findBlackKing, "blackCheck");
-	blackCheckByRookAndQueenLeft(findUpBlackKing, "blackCheckUp");
-	blackCheckByRookAndQueenLeft(findDownBlackKing, "blackCheckDown");
-	blackCheckByRookAndQueenLeft(findLeftBlackKing, "blackCheckLeft");
-	blackCheckByRookAndQueenLeft(findRightBlackKing, "blackCheckRight");
-	blackCheckByRookAndQueenLeft(findUpLeftBlackKing, "blackCheckUpLeft");
-	blackCheckByRookAndQueenLeft(findUpRightBlackKing, "blackCheckUpRight");
-	blackCheckByRookAndQueenLeft(findDownRightBlackKing, "blackCheckDownRight");
-	blackCheckByRookAndQueenLeft(findDownLeftBlackKing, "blackCheckDownLeft");
-
-	blackCheckByRookAndQueenDown(findBlackKing, "blackCheck");
-	blackCheckByRookAndQueenDown(findUpBlackKing, "blackCheckUp");
-	blackCheckByRookAndQueenDown(findDownBlackKing, "blackCheckDown");
-	blackCheckByRookAndQueenDown(findLeftBlackKing, "blackCheckLeft");
-	blackCheckByRookAndQueenDown(findRightBlackKing, "blackCheckRight");
-	blackCheckByRookAndQueenDown(findUpLeftBlackKing, "blackCheckUpLeft");
-	blackCheckByRookAndQueenDown(findUpRightBlackKing, "blackCheckUpRight");
-	blackCheckByRookAndQueenDown(findDownRightBlackKing, "blackCheckDownRight");
-	blackCheckByRookAndQueenDown(findDownLeftBlackKing, "blackCheckDownLeft");
-
-	blackCheckByRookAndQueenUp(findBlackKing, "blackCheck");
-	blackCheckByRookAndQueenUp(findUpBlackKing, "blackCheckUp");
-	blackCheckByRookAndQueenUp(findDownBlackKing, "blackCheckDown");
-	blackCheckByRookAndQueenUp(findLeftBlackKing, "blackCheckLeft");
-	blackCheckByRookAndQueenUp(findRightBlackKing, "blackCheckRight");
-	blackCheckByRookAndQueenUp(findUpLeftBlackKing, "blackCheckUpLeft");
-	blackCheckByRookAndQueenUp(findUpRightBlackKing, "blackCheckUpRight");
-	blackCheckByRookAndQueenUp(findDownRightBlackKing, "blackCheckDownRight");
-	blackCheckByRookAndQueenUp(findDownLeftBlackKing, "blackCheckDownLeft");
-
-	//black bishops and queens
-	blackCheckByBishopOrQueenUpLeft(findBlackKing, "blackCheck");
-	blackCheckByBishopOrQueenUpLeft(findUpBlackKing, "blackCheckUp");
-	blackCheckByBishopOrQueenUpLeft(findDownBlackKing, "blackCheckDown");
-	blackCheckByBishopOrQueenUpLeft(findLeftBlackKing, "blackCheckLeft");
-	blackCheckByBishopOrQueenUpLeft(findRightBlackKing, "blackCheckRight");
-	blackCheckByBishopOrQueenUpLeft(findUpLeftBlackKing, "blackCheckUpLeft");
-	blackCheckByBishopOrQueenUpLeft(findUpRightBlackKing, "blackCheckUpRight");
-	blackCheckByBishopOrQueenUpLeft(findDownRightBlackKing, "blackCheckDownRight");
-	blackCheckByBishopOrQueenUpLeft(findDownLeftBlackKing, "blackCheckDownLeft");
-
-	blackCheckByBishopOrQueenUpRight(findBlackKing, "blackCheck");
-	blackCheckByBishopOrQueenUpRight(findUpBlackKing, "blackCheckUp");
-	blackCheckByBishopOrQueenUpRight(findDownBlackKing, "blackCheckDown");
-	blackCheckByBishopOrQueenUpRight(findLeftBlackKing, "blackCheckLeft");
-	blackCheckByBishopOrQueenUpRight(findRightBlackKing, "blackCheckRight");
-	blackCheckByBishopOrQueenUpRight(findUpLeftBlackKing, "blackCheckUpLeft");
-	blackCheckByBishopOrQueenUpRight(findUpRightBlackKing, "blackCheckUpRight");
-	blackCheckByBishopOrQueenUpRight(findDownRightBlackKing, "blackCheckDownRight");
-	blackCheckByBishopOrQueenUpRight(findDownLeftBlackKing, "blackCheckDownLeft");
-
-	blackCheckByBishopOrQueenDownLeft(findBlackKing, "blackCheck");
-	blackCheckByBishopOrQueenDownLeft(findUpBlackKing, "blackCheckUp");
-	blackCheckByBishopOrQueenDownLeft(findDownBlackKing, "blackCheckDown");
-	blackCheckByBishopOrQueenDownLeft(findLeftBlackKing, "blackCheckLeft");
-	blackCheckByBishopOrQueenDownLeft(findRightBlackKing, "blackCheckRight");
-	blackCheckByBishopOrQueenDownLeft(findUpLeftBlackKing, "blackCheckUpLeft");
-	blackCheckByBishopOrQueenDownLeft(findUpRightBlackKing, "blackCheckUpRight");
-	blackCheckByBishopOrQueenDownLeft(findDownRightBlackKing, "blackCheckDownRight");
-	blackCheckByBishopOrQueenDownLeft(findDownLeftBlackKing, "blackCheckDownLeft");
-
-	blackCheckByBishopOrQueenDownRight(findBlackKing, "blackCheck");
-	blackCheckByBishopOrQueenDownRight(findUpBlackKing, "blackCheckUp");
-	blackCheckByBishopOrQueenDownRight(findDownBlackKing, "blackCheckDown");
-	blackCheckByBishopOrQueenDownRight(findLeftBlackKing, "blackCheckLeft");
-	blackCheckByBishopOrQueenDownRight(findRightBlackKing, "blackCheckRight");
-	blackCheckByBishopOrQueenDownRight(findUpLeftBlackKing, "blackCheckUpLeft");
-	blackCheckByBishopOrQueenDownRight(findUpRightBlackKing, "blackCheckUpRight");
-	blackCheckByBishopOrQueenDownRight(findDownRightBlackKing, "blackCheckDownRight");
-	blackCheckByBishopOrQueenDownRight(findDownLeftBlackKing, "blackCheckDownLeft");
+	var blackCheckComf = function() {
+		findBlackKing = $(".board-row").find(".black-king").parent();
+		blackCheckByPawn(findBlackKing, "check");
+		blackCheckByKnight(findBlackKing, "check");
+		blackCheckByKing(findBlackKing, "check");
+		blackCheckByRookAndQueenRight(findBlackKing, "check");
+		blackCheckByRookAndQueenLeft(findBlackKing, "check");
+		blackCheckByRookAndQueenDown(findBlackKing, "check");
+		blackCheckByRookAndQueenUp(findBlackKing, "check");
+		blackCheckByBishopOrQueenUpLeft(findBlackKing, "check");
+		blackCheckByBishopOrQueenUpRight(findBlackKing, "check");
+		blackCheckByBishopOrQueenDownLeft(findBlackKing, "check");
+		blackCheckByBishopOrQueenDownRight(findBlackKing, "check");
+		return blackCheckList;
+	};
 
 	var whiteCheckTest = function() {
-    	if(whiteCheckList.sort()[0] === "whiteCheck") {
+    	if(whiteCheckList.sort()[0] === "check") {
     		return whiteCheck = true;
     	};
 	}
 
 	var blackCheckTest = function() {
-		if(blackCheckList.sort()[0] === "blackCheck") {
+		if(blackCheckList.sort()[blackCheckList.length - 1] === "check") {
 			return blackCheck = true;
 		}
 	}
 
-	var whiteCheckMateTest = function() {
-	    var sortedWhiteCheckList = whiteCheckList.sort();	    
-	    var sortedWhiteMateArray = checkMateWhiteArray.sort()
-	    var whiteMatchArray = []
-	    for(i = 0; i < sortedWhiteCheckList.length; i++) {
-	    	if(sortedWhiteCheckList[i] != sortedWhiteCheckList[i + 1]) {
-	    		whiteMatchArray.push(sortedWhiteCheckList[i]);
-	    	};
-	    };
-	    var sortedWhiteMatchArray = whiteMatchArray.sort();
-	    return sortedWhiteMatchArray;
+    //begin check-mate assessment methods
+	var whiteRunCheck = function(locale) {
+	//find black king and surrounding squares
+		if(locale.children().hasClass("chess-piece") === false && locale[0] != undefined) {
+			whiteCheckByPawn(locale, "wp");
+			whiteCheckByKnight(locale, "wkn");
+			whiteCheckByKing(locale, "wk");
+			whiteCheckByRookAndQueenRight(locale, "wrr");
+			whiteCheckByRookAndQueenLeft(locale, "wrl");
+			whiteCheckByRookAndQueenDown(locale, "wrd");
+			whiteCheckByRookAndQueenUp(locale, "wru");
+			whiteCheckByBishopOrQueenUpLeft(locale, "wbul");
+			whiteCheckByBishopOrQueenUpRight(locale, "wbur");
+			whiteCheckByBishopOrQueenDownLeft(locale, "wbdl");
+			whiteCheckByBishopOrQueenDownRight(locale, "wbdr");
+			return whiteCheckList;
+		};
 	};
 
-	var blackCheckMateTest = function() {
-	    var sortedBlackCheckList = blackCheckList.sort();	    
-	    var sortedBlackMateArray = checkMateBlackArray.sort()
-	    var blackMatchArray = []
-	    for(i = 0; i < sortedBlackCheckList.length; i++) {
-	    	if(sortedBlackCheckList[i] != sortedBlackCheckList[i + 1]) {
-	    		blackMatchArray.push(sortedBlackCheckList[i]);
-	    	};
-	    };
-	    var sortedBlackMatchArray = blackMatchArray.sort();
-	    return sortedBlackMatchArray;
+	var blackRunCheck = function(locale) {
+		if(locale.children().hasClass("chess-piece") === false && locale[0] != undefined) {
+			blackCheckByPawn(locale, "bp");
+			blackCheckByKnight(locale, "bkn");
+			blackCheckByKing(locale, "bk");
+			blackCheckByRookAndQueenRight(locale, "brr");
+			blackCheckByRookAndQueenLeft(locale, "brl");
+			blackCheckByRookAndQueenDown(locale, "brd");
+			blackCheckByRookAndQueenUp(locale, "bru");
+			blackCheckByBishopOrQueenUpLeft(locale, "bbul");
+			blackCheckByBishopOrQueenUpRight(locale, "bbur");
+			blackCheckByBishopOrQueenDownLeft(locale, "bbdl");
+			blackCheckByBishopOrQueenDownRight(locale, "bbdr");
+			return blackCheckList;
+		};
 	};
 
 	var finalWhiteCheckMateTest = function() {
-      var whiteCounter = 9;
-      if(findUpWhiteKing === undefined || findUpWhiteKing.children().hasClass("chess-piece")) {
+      whiteCounter = 9;
+      if(findUpWhiteKing[0] === undefined || findUpWhiteKing.children().hasClass("chess-piece")) {
         whiteCounter --;
       };
-      if(findDownWhiteKing === undefined || findDownWhiteKing.children().hasClass("chess-piece")) {
+      if(findDownWhiteKing[0] === undefined || findDownWhiteKing.children().hasClass("chess-piece")) {
         whiteCounter --;
       };
-      if(findLeftWhiteKing === undefined || findLeftWhiteKing.children().hasClass("chess-piece")) {
+      if(findLeftWhiteKing[0] === undefined || findLeftWhiteKing.children().hasClass("chess-piece")) {
         whiteCounter --;
       };
-      if(findRightWhiteKing === undefined || findRightWhiteKing.children().hasClass("chess-piece")) {
+      if(findRightWhiteKing[0] === undefined || findRightWhiteKing.children().hasClass("chess-piece")) {
         whiteCounter --;
       };
-      if(findUpLeftWhiteKing === undefined || findUpLeftWhiteKing.children().hasClass("chess-piece")) {
+      if(findUpLeftWhiteKing[0] === undefined || findUpLeftWhiteKing.children().hasClass("chess-piece")) {
         whiteCounter --;
       };
-      if(findUpRightWhiteKing === undefined || findUpRightWhiteKing.children().hasClass("chess-piece")) {
+      if(findUpRightWhiteKing[0] === undefined || findUpRightWhiteKing.children().hasClass("chess-piece")) {
         whiteCounter --;
       };
-      if(findDownLeftWhiteKing === undefined || findDownLeftWhiteKing.children().hasClass("chess-piece")) {
+      if(findDownLeftWhiteKing[0] === undefined || findDownLeftWhiteKing.children().hasClass("chess-piece")) {
         whiteCounter --;
       };
-      if(findDownRightWhiteKing === undefined || findDownRightWhiteKing.children().hasClass("chess-piece")) {
+      if(findDownRightWhiteKing[0] === undefined || findDownRightWhiteKing.children().hasClass("chess-piece")) {
         whiteCounter --;
       };
       return whiteCounter;
@@ -589,28 +397,36 @@ var isCheck = function() {
       return blackCounter;
 	};
 
+	whiteCheckComf();
+	whiteRunCheck(findUpWhiteKing);
+	whiteRunCheck(findDownWhiteKing);
+	whiteRunCheck(findLeftWhiteKing);
+	whiteRunCheck(findRightWhiteKing);
+	whiteRunCheck(findUpLeftWhiteKing);
+	whiteRunCheck(findUpRightWhiteKing);
+	whiteRunCheck(findDownLeftWhiteKing);
+	whiteRunCheck(findDownRightWhiteKing);
+
+	blackCheckComf();
+	blackRunCheck(findUpBlackKing);
+	blackRunCheck(findDownBlackKing);
+	blackRunCheck(findLeftBlackKing);
+	blackRunCheck(findRightBlackKing);
+	blackRunCheck(findUpLeftBlackKing);
+	blackRunCheck(findUpRightBlackKing);
+	blackRunCheck(findDownLeftBlackKing);
+	blackRunCheck(findDownRightBlackKing);
+
 	whiteCheckTest();
 	blackCheckTest();
-	whiteCheckMateTest();
-	blackCheckMateTest();
 	finalWhiteCheckMateTest();
 	finalBlackCheckMateTest();
-
-	//start a counter at 8. Check each direction. If a direction is undefined (off the edge of the board), subtract 1 from the counter. If a direction has a piece on it, subtract 1 from the counter. Whatever the counter remains as, that is how long the sortedWhiteMatchArray must be (+ 1 since "blackCheck/whiteCheck" doesn't count). 
-    
-    //i.e. if top 3 squares are empty and three surrounding squares have pieces, that leaves 2 left, so if the sortedWhiteMatchArray's length is 3, then checkMate is true.
-    	if(whiteCheckList.length === whiteCounter && sortedWhiteMatchArray.length != 0 && sortedWhiteMatchArray.length != 1) {
+	
+    if(whiteCheckList.length === whiteCounter && whiteCheckList.length != 0 && whiteCheckList.length != 1 && whiteCheckList.length != 2) {
     		return whiteCheckMate = true;
-    	}
-    	else if(blackCheckList.length === blackCounter && sortedBlackMatchArray.length != 0 && sortedBlackMatchArray.length != 1) {
+    }
+    else if(blackCheckList.length === blackCounter && blackCheckList.length != 0 && blackCheckList.length != 1 && blackCheckList.length != 2) {
     		return blackCheckMate = true;
-    	}
-    //do the suggestion above instead of the one below.
-	// if(sortedWhiteMatchArray === checkMateWhiteArray.sort())  {
-	//       return whiteCheckMate = true;
-	// }
-	// else if(sortedBlackMatchArray === checkMateBlackArray.sort()) {
-	// 	  return blackCheckMate = true;
-	// };
+    };
 
 }; 

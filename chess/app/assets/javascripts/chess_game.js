@@ -5,52 +5,22 @@ var startPos;
 var whiteCheckMate = false;
 var blackCheckMate = false;
 var whiteCheck = false;
-// var whiteCheckUp = false;
-// var whiteCheckDown = false;
-// var whiteCheckLeft = false;
-// var whiteCheckRight = false;
-// var whiteCheckUpRight = false;
-// var whiteCheckUpLeft = false;
-// var whiteCheckDownRight = false;
-// var whiteCheckDownLeft = false;
 var blackCheck = false;
-// var blackCheckUp = false;
-// var blackCheckDown = false;
-// var blackCheckLeft = false;
-// var blackCheckRight = false;
-// var blackCheckUpRight = false;
-// var blackCheckUpLeft = false;
-// var blackCheckDownRight = false;
-// var blackCheckDownLeft = false;
-
+var whiteCancelCastle = false;
+var blackCancelCastle = false;
 
 var playerTurn = function() {
   whiteCheck = false;
-  // whiteCheckUp = false;
-  // whiteCheckDown = false;
-  // whiteCheckLeft = false;
-  // whiteCheckRight = false;
-  // whiteCheckUpRight = false;
-  // whiteCheckUpLeft = false;
-  // whiteCheckDownRight = false;
-  // whiteCheckDownLeft = false;
   blackCheck = false;
-  // blackCheckUp = false;
-  // blackCheckDown = false;
-  // blackCheckLeft = false;
-  // blackCheckRight = false;
-  // blackCheckUpRight = false;
-  // blackCheckUpLeft = false;
-  // blackCheckDownRight = false;
-  // blackCheckDownLeft = false;
+ 
   isCheck();
   console.log("W check? " + whiteCheck);
   console.log("B check? " + blackCheck);
   console.log("W mate? " + whiteCheckMate);
   console.log("B mate? " + blackCheckMate);
+
   $( ".chess-piece" ).draggable({
     helper: "clone",
-    // revert: "invalid",
     start: function( event, ui ){
         startPos = $(this).parent();
         if($(this).attr("class") === "white-pawn white-piece chess-piece ui-draggable ui-draggable-handle" || $(this).attr("class") === "black-pawn black-piece chess-piece ui-draggable ui-draggable-handle") {
