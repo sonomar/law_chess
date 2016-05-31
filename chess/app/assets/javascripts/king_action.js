@@ -5,7 +5,6 @@ var kingAction = function() {
 		disabled: false,
 			
 		drop: function( event, ui ) {
-			debugger
             //white king
 			if($(this)[0] === startPos.parent().prev().children("span")[(startPos.index())] && startPos.children().hasClass("white-king") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();

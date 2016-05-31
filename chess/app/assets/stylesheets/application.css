@@ -22,6 +22,9 @@
 
  .chessboard {
  	text-align: center;
+ 	/*background: url("http://i.stack.imgur.com/fpgJx.jpg") no-repeat center;
+ 	background-size: 500px;
+    z-index: -1;*/
  }
 
  .board-row {

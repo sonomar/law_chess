@@ -72,7 +72,7 @@ var queenAction = function() {
 			  var chessIndex = startPos.index();
 			  var parentIndex = startPos.parent().index();
 			  disableUpLeftArray = [];
-              for(var placement = 1; placement < chessIndex; placement++) {
+              for(var placement = 1; placement < 9; placement++) {
               	if(startPos.parent().siblings().eq(parentIndex - placement).children().eq(startPos.index() - placement).children().hasClass("chess-piece")) {
               	  for(var disableUpLeft = placement + 1; disableUpLeft < chessIndex + 1; disableUpLeft ++) {
                     disableUpLeftArray.push(disableUpLeft);
@@ -186,7 +186,7 @@ var queenAction = function() {
 				    $( this )
 				    .html( ui.draggable );			    
 				}
-				else if($(this)[0] === startPos.parent().siblings().eq(startPos.parent().index() - i).children("span")[(startPos.index() - i)] && startPos.children().hasClass("black-bishop") && $(this)[0] != startPos.parent().siblings().eq(startPos.parent().index() - disableUpLeftArray[0]).children("span")[(startPos.index() - disableUpLeftArray[0])] && $(this)[0] != startPos.parent().siblings().eq(startPos.parent().index() - disableUpLeftArray[1]).children("span")[(startPos.index() - disableUpLeftArray[1])] && $(this)[0] != startPos.parent().siblings().eq(startPos.parent().index() - disableUpLeftArray[2]).children("span")[(startPos.index() - disableUpLeftArray[2])] && $(this)[0] != startPos.parent().siblings().eq(startPos.parent().index() - disableUpLeftArray[3]).children("span")[(startPos.index() - disableUpLeftArray[3])] && $(this)[0] != startPos.parent().siblings().eq(startPos.parent().index() - disableUpLeftArray[4]).children("span")[(startPos.index() - disableUpLeftArray[4])] && $(this)[0] != startPos.parent().siblings().eq(startPos.parent().index() - disableUpLeftArray[5]).children("span")[(startPos.index() - disableUpLeftArray[5])] && startPos.children().hasClass("black-queen") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false) {
+				else if($(this)[0] === startPos.parent().siblings().eq(startPos.parent().index() - i).children("span")[(startPos.index() - i)] && $(this)[0] != startPos.parent().siblings().eq(startPos.parent().index() - disableUpLeftArray[0]).children("span")[(startPos.index() - disableUpLeftArray[0])] && $(this)[0] != startPos.parent().siblings().eq(startPos.parent().index() - disableUpLeftArray[1]).children("span")[(startPos.index() - disableUpLeftArray[1])] && $(this)[0] != startPos.parent().siblings().eq(startPos.parent().index() - disableUpLeftArray[2]).children("span")[(startPos.index() - disableUpLeftArray[2])] && $(this)[0] != startPos.parent().siblings().eq(startPos.parent().index() - disableUpLeftArray[3]).children("span")[(startPos.index() - disableUpLeftArray[3])] && $(this)[0] != startPos.parent().siblings().eq(startPos.parent().index() - disableUpLeftArray[4]).children("span")[(startPos.index() - disableUpLeftArray[4])] && $(this)[0] != startPos.parent().siblings().eq(startPos.parent().index() - disableUpLeftArray[5]).children("span")[(startPos.index() - disableUpLeftArray[5])] && startPos.children().hasClass("black-queen") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false) {
 					playerTurn();
 				    $( this )
 				    .html( ui.draggable );	

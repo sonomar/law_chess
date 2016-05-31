@@ -15,7 +15,7 @@ var bishopAction = function() {
 			  var chessIndex = startPos.index();
 			  var parentIndex = startPos.parent().index();
 			  disableUpLeftArray = [];
-              for(var placement = 1; placement < chessIndex; placement++) {
+              for(var placement = 1; placement < 9; placement++) {
               	if(startPos.parent().siblings().eq(parentIndex - placement).children().eq(startPos.index() - placement).children().hasClass("chess-piece")) {
               	  for(var disableUpLeft = placement + 1; disableUpLeft < chessIndex + 1; disableUpLeft ++) {
                     disableUpLeftArray.push(disableUpLeft);
