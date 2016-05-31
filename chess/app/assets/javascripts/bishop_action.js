@@ -59,7 +59,6 @@ var bishopAction = function() {
               	  for(var disableDownRight = 7; disableDownRight > placement; disableDownRight --) {
                     disableDownRightArray.push(disableDownRight);
                   };
-                console.log(disableDownRightArray);
                 return disableDownRightArray;
               	};
               };
