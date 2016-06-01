@@ -8,82 +8,130 @@ var knightAction = function() {
             //white knight
 			if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".black-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
 			else if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() - 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".black-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
 			else if($(this)[0] === startPos.parent().next().next().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".black-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
 			else if($(this)[0] === startPos.parent().next().next().children("span")[(startPos.index() - 1)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".black-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
 			else if($(this)[0] === startPos.parent().prev().children("span")[(startPos.index() + 2)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".black-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
 			else if($(this)[0] === startPos.parent().prev().children("span")[(startPos.index() - 2)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".black-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
 			else if($(this)[0] === startPos.parent().next().children("span")[(startPos.index() + 2)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".black-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
 			else if($(this)[0] === startPos.parent().next().children("span")[(startPos.index() - 2)] && startPos.children().hasClass("white-knight") && $(this).children().hasClass("white-piece") === false && $(this).children().hasClass("black-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".black-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			};
 			//black knight
 			if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".white-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
 			else if($(this)[0] === startPos.parent().prev().prev().children("span")[(startPos.index() - 1)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".white-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
 			else if($(this)[0] === startPos.parent().next().next().children("span")[(startPos.index() + 1)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".white-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
 			else if($(this)[0] === startPos.parent().next().next().children("span")[(startPos.index() - 1)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".white-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
 			else if($(this)[0] === startPos.parent().prev().children("span")[(startPos.index() + 2)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".white-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
 			else if($(this)[0] === startPos.parent().prev().children("span")[(startPos.index() - 2)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".white-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
 			else if($(this)[0] === startPos.parent().next().children("span")[(startPos.index() + 2)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".white-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			}
 			else if($(this)[0] === startPos.parent().next().children("span")[(startPos.index() - 2)] && startPos.children().hasClass("black-knight") && $(this).children().hasClass("black-piece") === false && $(this).children().hasClass("white-king") === false){
 			    playerTurn();
+			    if($(this).children().hasClass("chess-piece")) {
+			    	$(".white-pieces-taken").append("<img class='taken-piece' src=" + $(this).children().attr("src") + ">");
+			    };
 			    return $( this )
 			    .html( ui.draggable );			    
 			};

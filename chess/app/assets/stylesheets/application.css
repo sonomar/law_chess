@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ body {  
+ 	min-width:600px;
+ }
+
  #title {
  	position: relative;
     font-size: 40px;
@@ -56,4 +60,17 @@
 
 .chess-piece {
   height: 40px;
+}
+
+.taken-piece {
+  height: 20px;
+}
+
+.white-pieces-taken {
+  text-align: center;
+}
+
+.black-pieces-taken {
+  text-align: center;
+
 }
