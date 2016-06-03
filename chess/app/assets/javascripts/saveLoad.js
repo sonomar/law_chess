@@ -43,11 +43,15 @@
                };
              };
            };
-          playerTurn();
-          playerTurn();
+          if(playerOneTurn === false) {
+            playerTurn();
+            playerTurn();
+          }
+          else {
+            playerTurn();
+          };
         });
     });
-    playerTurn();
   };
 
 

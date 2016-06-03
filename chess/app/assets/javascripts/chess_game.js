@@ -52,6 +52,7 @@ var playerTurn = function() {
 $(document).ready(function() {
 
   loadGame();
+  playerTurn();
   setInterval(checkOnCheck, 2000);
 
 });
