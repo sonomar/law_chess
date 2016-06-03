@@ -14,16 +14,18 @@
 ActiveRecord::Schema.define(version: 20160601192152) do
 
   create_table "chess_board_rows", force: :cascade do |t|
-    t.integer  "row_index",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "chess_game_id", null: false
+    t.integer  "row_index",     null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "chess_board_squares", force: :cascade do |t|
-    t.integer  "square_index",      null: false
+    t.integer  "chess_board_row_id", null: false
+    t.integer  "square_index",       null: false
     t.string   "chess_piece_image"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "chess_games", force: :cascade do |t|

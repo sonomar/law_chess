@@ -429,4 +429,30 @@ var isCheck = function() {
     		return blackCheckMate = true;
     };
 
-}; 
+};
+
+var checkOnCheck = function() {
+
+    isCheck();   
+    if(whiteCheck === true) {
+      $(".white-check").html("WHITE IN CHECK");
+    }
+    else {
+      $(".white-check").empty();
+    };
+    if(blackCheck === true) {
+      $(".black-check").html("BLACK IN CHECK");
+    }
+    else {
+      $(".black-check").empty();
+    };
+    if(whiteCheckMate === true) {
+      clearBoard();
+      $(".white-check").html("CHECK MATE. PLAYER 2 WINS!");
+    };
+    if(blackCheckMate === true) {
+      clearBoard();
+      $(".black-check").html("CHECK MATE. PLAYER 1 WINS!");
+    };
+    
+  }; 
