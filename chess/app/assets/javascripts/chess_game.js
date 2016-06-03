@@ -12,12 +12,6 @@ var blackCancelCastle = false;
 var playerTurn = function() {
   whiteCheck = false;
   blackCheck = false;
- 
-  isCheck();
-  console.log("W check? " + whiteCheck);
-  console.log("B check? " + blackCheck);
-  console.log("W mate? " + whiteCheckMate);
-  console.log("B mate? " + blackCheckMate);
 
   $( ".chess-piece" ).draggable({
     helper: "clone",
@@ -56,7 +50,37 @@ var playerTurn = function() {
 };
 
 $(document).ready(function() {
-//   $(".chess-piece").mouseover(function() {
-// });
-    playerTurn();
+
+  var checkOnCheck = function() {
+    isCheck();   
+    if(whiteCheck === true) {
+      $(".white-check").html("WHITE IN CHECK");
+    }
+    else {
+      $(".white-check").empty();
+    };
+    if(blackCheck === true) {
+      $(".black-check").html("BLACK IN CHECK");
+    }
+    else {
+      $(".black-check").empty();
+    };
+    if(whiteCheckMate === true) {
+      for(row = 0; row < 8; row++) {
+        $(".chessboard").children().eq(row).children().empty();
+      };
+      $(".white-check").html("CHECK MATE. PLAYER 2 WINS!");
+    };
+    if(blackCheckMate === true) {
+      for(row = 0; row < 8; row++) {
+        $(".chessboard").children().eq(row).children().empty();
+      };
+      $(".black-check").html("CHECK MATE. PLAYER 1 WINS!");
+    };
+  };
+
+  setInterval(checkOnCheck, 2000);
+
+  playerTurn();
+
 });

@@ -72,5 +72,9 @@
 
 .black-pieces-taken {
   text-align: center;
+}
 
+.in-check {
+  text-align: center;
+  color: red;
 }

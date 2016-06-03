@@ -27,7 +27,7 @@ var isCheck = function() {
 	var findDownLeftBlackKing = findBlackKing.parent().next().children().eq(findBlackKing.index() - 1);
 
     //white check rules
-    var whiteCheckByPawn = function(location, zone) {
+  var whiteCheckByPawn = function(location, zone) {
 	    if(location.parent().prev().children().eq(location.index() - 1).children().hasClass("black-pawn") || location.parent().prev().children().eq(location.index() + 1).children().hasClass("black-pawn")) {
             
 	    		whiteCheckList.push(zone);
@@ -97,7 +97,7 @@ var isCheck = function() {
 		};
 	};
 	var whiteCheckByBishopOrQueenUpLeft = function(location, zone) {
-	  for(i = 0; i < 7; i++) {
+	  for(i = 0; i < findWhiteKing.index(); i++) {
 	  	if(location.parent().prevAll().eq(i).children().eq(location.index() - i - 1).children().hasClass("black-bishop") || location.parent().prevAll().eq(i).children().eq(location.index() - i - 1).children().hasClass("black-queen")) {
 	     		whiteCheckList.push(zone);
 	    		return whiteCheckList;
@@ -108,7 +108,7 @@ var isCheck = function() {
 	  };
 	};
 	var whiteCheckByBishopOrQueenUpRight = function(location, zone) {
-	  for(i = 0; i < 7; i++) {
+	  for(i = 0; i < (7 - findWhiteKing.index()); i++) {
 	    if(location.parent().prevAll().eq(i).children().eq(location.index() + i + 1).children().hasClass("black-bishop") || location.parent().prevAll().eq(i).children().eq(location.index() + i + 1).children().hasClass("black-queen")) {
 	     		whiteCheckList.push(zone);
 	    		return whiteCheckList;
@@ -119,7 +119,7 @@ var isCheck = function() {
 	  };
 	};
 	var whiteCheckByBishopOrQueenDownLeft = function(location, zone) {
-	  for(i = 0; i < 7; i++) {
+	  for(i = 0; i < findWhiteKing.index(); i++) {
 	    if(location.parent().nextAll().eq(i).children().eq(location.index() - i - 1).children().hasClass("black-bishop") || location.parent().nextAll().eq(i).children().eq(location.index() - i - 1).children().hasClass("black-queen")) {
 	     		whiteCheckList.push(zone);
 	    		return whiteCheckList;
@@ -130,7 +130,7 @@ var isCheck = function() {
 	  };
 	};
 	var whiteCheckByBishopOrQueenDownRight = function(location, zone) {
-	  for(i = 0; i < 7; i++) {
+	  for(i = 0; i < (7 - findWhiteKing.index()); i++) {
 	    if(location.parent().nextAll().eq(i).children().eq(location.index() + i + 1).children().hasClass("black-bishop") || location.parent().nextAll().eq(i).children().eq(location.index() + i + 1).children().hasClass("black-queen")) {
 	     		whiteCheckList.push(zone);
 	    		return whiteCheckList;
@@ -212,7 +212,7 @@ var isCheck = function() {
 	};
 
 	var blackCheckByBishopOrQueenUpLeft = function(location, zone) {
-	  for(i = 0; i < 7; i++) {
+	  for(i = 0; i < findWhiteKing.index(); i++) {
 	  	if(location.parent().prevAll().eq(i).children().eq(location.index() - i - 1).children().hasClass("white-bishop") || location.parent().prevAll().eq(i).children().eq(location.index() - i - 1).children().hasClass("white-queen")) {
 	     		blackCheckList.push(zone);
 	    		return blackCheckList;
@@ -224,7 +224,7 @@ var isCheck = function() {
 	};
 
 	var blackCheckByBishopOrQueenUpRight = function(location, zone) {
-	  for(i = 0; i < 7; i++) {
+	  for(i = 0; i < (7 - findWhiteKing.index()); i++) {
 	    if(location.parent().prevAll().eq(i).children().eq(location.index() + i + 1).children().hasClass("white-bishop") || location.parent().prevAll().eq(i).children().eq(location.index() + i + 1).children().hasClass("white-queen")) {
 	     		blackCheckList.push(zone);
 	    		return blackCheckList;
@@ -236,7 +236,7 @@ var isCheck = function() {
 	};
 
 	var blackCheckByBishopOrQueenDownLeft = function(location, zone) {
-	  for(i = 0; i < 7; i++) {
+	  for(i = 0; i < findWhiteKing.index(); i++) {
 	    if(location.parent().nextAll().eq(i).children().eq(location.index() - i - 1).children().hasClass("white-bishop") || location.parent().nextAll().eq(i).children().eq(location.index() - i - 1).children().hasClass("white-queen")) {
 	     		blackCheckList.push(zone);
 	    		return blackCheckList;
@@ -248,7 +248,7 @@ var isCheck = function() {
 	};
 
 	var blackCheckByBishopOrQueenDownRight = function(location, zone) {
-	  for(i = 0; i < 7; i++) {
+	  for(i = 0; i < (7 - findWhiteKing.index()); i++) {
 	    if(location.parent().nextAll().eq(i).children().eq(location.index() + i + 1).children().hasClass("white-bishop") || location.parent().nextAll().eq(i).children().eq(location.index() + i + 1 ).children().hasClass("white-queen")) {
 	    		blackCheckList.push(zone);
 	    		return blackCheckList;
