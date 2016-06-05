@@ -8,6 +8,9 @@ var whiteCheck = false;
 var blackCheck = false;
 var whiteCancelCastle = false;
 var blackCancelCastle = false;
+var saveRowObject = {};
+var saveRowArray = [];
+var saveSquareObject = {};
 
 var playerTurn = function() {
   whiteCheck = false;
@@ -52,6 +55,8 @@ var playerTurn = function() {
 $(document).ready(function() {
 
   loadGame();
+  createSaveObject();
+  saveGame();
   playerTurn();
   setInterval(checkOnCheck, 2000);
 

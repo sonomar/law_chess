@@ -26,11 +26,8 @@
            var finalData = JSON.parse(newernewerstr);
            clearBoard();
            for( row = 0; row < 8; row++) {
-            console.log("row: " + row);
             var current_row = row;
              for( square = 0; square < 8; square ++) {
-               console.log("square: " + square);
-               // debugger
                var squareData = finalData["row: " + current_row + " - index: " + square]
                if(squareData != null) {
                  var square1 = /&lt;/gi;
@@ -54,6 +51,36 @@
     });
   };
 
+  var saveGame = function() {
+    $(".save-form").on("submit", function(event) {
+      event.preventDefault();
+      $.ajax({
+        type: "post",
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        url: "/home",
+        data: createSaveObject(),
+        datatype: 'json'
+      }).done(function(results) {
+        console.log("success!");
+      });
+    });
+  };
+
+  var createSaveObject = function() {
+    for(row = 0; row < 8; row++) {
+      var current_row = row;
+      for(square = 0; square < 8; square++) {
+        if($(".chessboard").children().eq(current_row).children().eq(square).children().hasClass("chess-piece")) {
+          saveSquareObject["row " + current_row + square] = square;
+          saveSquareObject["squareImg " + current_row + square] = $(".chessboard").children().eq(current_row).children().eq(square).children().attr("src");
+          saveSquareObject["squareClass " + current_row + square] = $(".chessboard").children().eq(current_row).children().eq(square).children().attr("class");     
+          saveRowObject["chessGame"] = saveSquareObject;
+          saveRowObject["saveName"] = $(".saving_name_value").val();
+        };
+      };
+    };
+    return saveRowObject;
+  };
 
 // var saveGame = function(saveName) {
 // 	//create a new ChessGame in the database AND

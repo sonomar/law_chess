@@ -4,11 +4,6 @@ class IndexController < ApplicationController
       
 	end
 
-	def create
-		@save_name = "default"
-    @new_game = chessGame.new(@save_name)
-	end
-
 	def load_game
 		@load_game_data = {}
 		  loaded_game = ChessGame.find_by save_name: (params[:load_name])

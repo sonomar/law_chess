@@ -92,10 +92,15 @@
       <% end %>
     </div>
     <div>
+      <%= form_tag('/home', method: 'post', class: 'save-form') do %>
+        <%= text_field_tag "saving_name", nil, class: "saving_name_value" %>
+        <%= submit_tag('Save') %>
+      <% end %>
+    </div>
+    <div>
       <%= form_tag('/load_game', method: 'get', class: 'load-form') do %>
         <%= text_field_tag(:load_name) %>
         <%= submit_tag('Load') %>
       <% end %>
     </div>
-    <div class='datatest'></div>
 </div>
