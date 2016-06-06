@@ -78,3 +78,15 @@
   text-align: center;
   color: red;
 }
+
+.trade-piece {
+  height: 30px;
+}
+
+.white-select {
+  display: none;
+}
+
+.black-select {
+  display: none;
+}
