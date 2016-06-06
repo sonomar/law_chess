@@ -15,7 +15,7 @@ class IndexController < ApplicationController
 		    	game_squares.each do |square|
 		    		square_index = square.square_index
 		    		square_image = square.chess_piece_image
-		    		@load_game_data['row: ' + row_index.to_s + ' - index: ' + square_index.to_s] = square_image
+		    		@load_game_data['row: ' + row_index.to_s + ' - index: ' + square_index.to_s + " - turn: " + loaded_game.player_turn.to_s] = square_image
 		    	end
 		  	end
 	  	return @load_game_data.to_json

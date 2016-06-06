@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
 	def create
     #add player_turn to js file and this at some point
-    new_chess_game = ChessGame.new(save_name: params["saveName"])
+    new_chess_game = ChessGame.new(save_name: params["saveName"], player_turn: params["playerTurn"])
     if new_chess_game.save
       params["chessGame"].each do |key, value|
         if key[0] == "r"

@@ -24,11 +24,14 @@
            var rerere = /nil/gi;
            var newernewerstr = newerstr.replace(rerere, 'null');
            var finalData = JSON.parse(newernewerstr);
+           var turnCheck = Object.keys(finalData)[0];
+           var turnInt = turnCheck[turnCheck.length - 1];
            clearBoard();
            for( row = 0; row < 8; row++) {
             var current_row = row;
              for( square = 0; square < 8; square ++) {
-               var squareData = finalData["row: " + current_row + " - index: " + square]
+               var squareData = finalData["row: " + current_row + " - index: " + square + " - turn: " + turnInt.toString() ]
+               // debugger
                if(squareData != null) {
                  var square1 = /&lt;/gi;
                  var square2 = /&gt;/gi;
@@ -40,11 +43,11 @@
                };
              };
            };
-          if(playerOneTurn === false) {
-            playerTurn();
+          if(turnInt === "0") {
             playerTurn();
           }
           else {
+            playerTurn();
             playerTurn();
           };
         });
@@ -76,10 +79,15 @@
           saveSquareObject["squareClass " + current_row + square] = $(".chessboard").children().eq(current_row).children().eq(square).children().attr("class");     
           saveRowObject["chessGame"] = saveSquareObject;
           saveRowObject["saveName"] = $(".saving_name_value").val();
+          if(playerOneTurn === true) {
+            saveRowObject["playerTurn"] = 0;
+          }
+          else {
+            saveRowObject["playerTurn"] = 1;
+          }
         };
       };
     };
-    console.log(saveRowObject)
     return saveRowObject;
   };
 
