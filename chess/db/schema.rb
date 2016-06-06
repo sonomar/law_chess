@@ -29,9 +29,10 @@ ActiveRecord::Schema.define(version: 20160601192152) do
   end
 
   create_table "chess_games", force: :cascade do |t|
-    t.string   "save_name",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "save_name",               null: false
+    t.integer  "player_turn", default: 0, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end

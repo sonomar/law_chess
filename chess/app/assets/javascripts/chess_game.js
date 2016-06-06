@@ -15,6 +15,7 @@ var saveSquareObject = {};
 var playerTurn = function() {
   whiteCheck = false;
   blackCheck = false;
+  saveRowObject = {};
 
   $( ".chess-piece" ).draggable({
     helper: "clone",
@@ -55,7 +56,6 @@ var playerTurn = function() {
 $(document).ready(function() {
 
   loadGame();
-  createSaveObject();
   saveGame();
   playerTurn();
   setInterval(checkOnCheck, 2000);
