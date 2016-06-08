@@ -5,9 +5,8 @@ class HomeController < ApplicationController
 	end
 
 	def create
-    #add player_turn to js file and this at some point
-    new_chess_game = ChessGame.new(save_name: params["saveName"], player_turn: params["playerTurn"])
-    if new_chess_game.save
+    @new_chess_game = ChessGame.where(save_name: params["saveName"], player_turn: params["playerTurn"]).first_or_initialize
+    if ChessGame.exists?(save_name: params["saveName"]) == false && @new_chess_game.save
       params["chessGame"].each do |key, value|
         if key[0] == "r"
           get_row = key.split("")[-2]
@@ -21,15 +20,15 @@ class HomeController < ApplicationController
             if new_chess_square.save
               puts "saved successfully!"
             else
-              return "could not save to database"
+              puts "could not save to database"
             end
           else
-            return "could not save to database"
+            puts "could not save to database"
           end
         end
       end
     else
-      return "could not save to database"
+      puts "could not save to database"
     end
 
   redirect_to "/"

@@ -90,3 +90,13 @@
 .black-select {
   display: none;
 }
+
+.load_errors {
+  display: none;
+  color: red;
+}
+
+.save_errors {
+  color: red;
+}
+

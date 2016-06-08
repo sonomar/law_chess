@@ -25,6 +25,14 @@
            var newernewerstr = newerstr.replace(rerere, 'null');
            var finalData = JSON.parse(newernewerstr);
            var turnCheck = Object.keys(finalData)[0];
+           if(turnCheck === undefined) {
+            console.log("could not load");
+            $(".load_errors").css("display", "block");
+            // setInterval($(".load_errors").css("display", "none"), 3000);
+            return "could not load";
+           }
+           else {
+           $(".load_errors").css("display", "none");
            var turnInt = turnCheck[turnCheck.length - 1];
            clearBoard();
            for( row = 0; row < 8; row++) {
@@ -43,11 +51,13 @@
                };
              };
            };
+           };
           if(turnInt === "0") {
+            playerOneTurn = false;
             playerTurn();
           }
           else {
-            playerTurn();
+            playerOneTurn = true;
             playerTurn();
           };
         });
@@ -64,7 +74,7 @@
         data: createSaveObject(),
         datatype: 'json'
       }).done(function(results) {
-        console.log("success!");
+        console.log("Ajax successful!");
       });
     });
   };
@@ -90,37 +100,3 @@
     };
     return saveRowObject;
   };
-
-// var saveGame = function(saveName) {
-// 	//create a new ChessGame in the database AND
-// 	//make 'saveName' argument the 'save_name' for that game
-// 	for(i = 0; i < 8; i++) {
-// 		//save 'i' as the row number in the database with it's game having the id of the one with the save-name "saveName"
-// 		$(".chess_board").children().eq(i).children().forEach(function(square) {
-// 	    if(square.children().hasClass("chess-piece")) {
-// 	      //save 'square.index()' to a new chess_board_square in the database under 'square_index' AND
-// 	      //set the 'chess_board_row_id' as 'i'
-// 	      //set 'square.children.attr('src')' as 'chess_piece_image'
-// 	    };
-// 		});
-// 	}
-// };
-
-//$(save-button).click(function() {
-//  Ajax request
-//  Post
-//};
-
- // $(document).on("submit", ".save-button", function(event) {
- //    event.preventDefault();
- //    $.ajax({
- //      type: "Post",
- //      url: "/save",
- //      data: { ChessGame: { save_name: "", description: "whatever" } }
- //      }).done(function(results) {
-
- //        $(".search_form").html(results);
- //      });
-
-
- //  });
